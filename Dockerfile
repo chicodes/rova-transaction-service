@@ -22,8 +22,8 @@ WORKDIR /app
 
 # COPY config/configs-dev.properties config/
 
-COPY --from=build /app/target/medusa_merchant-0.0.1-SNAPSHOT.jar portal.jar
+COPY --from=build /app/target/transactionService-0.0.1-SNAPSHOT.jar transactionService.jar
 
-EXPOSE 3394
+EXPOSE 1837
 
-ENTRYPOINT ["java","-jar","portal.jar"]
+ENTRYPOINT ["java","-jar","transactionService.jar"]

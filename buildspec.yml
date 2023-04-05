@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
       AWS_ACCOUNT_ID : "020960785416"
-      IMAGE_REPO_NAME : "rova-account-service"
+      IMAGE_REPO_NAME : "rova-transaction-service"
       IMAGE_TAG : "latest"
 
 
