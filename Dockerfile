@@ -1,10 +1,9 @@
 FROM public.ecr.aws/docker/library/maven:3.6-jdk-11-slim AS build
 
-COPY pom.xml /app/
-RUN mvn dependency:go-offline
+COPY pom.xml /app
 
-COPY src/main /app/src/main/
-COPY src/test /app/src/test/
+COPY src/main /app/src
+
 
 WORKDIR /app
 RUN mvn clean install -DskipTests
