@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @Validated
 @RequiredArgsConstructor
-@RequestMapping(Constants.ACCOUNT_BASE_URL+"/transaction")
+@RequestMapping(Constants.BASE_URL +"/transaction")
 public class TransactionController {
 
     private final TransactionService transactionService;

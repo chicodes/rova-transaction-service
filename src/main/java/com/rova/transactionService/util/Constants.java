@@ -5,7 +5,7 @@ public class Constants {
 
     }
 
-    public static final String ACCOUNT_BASE_URL = "/api/v1";
+    public static final String BASE_URL = "/api/v1";
     public static final String SUCCESS = "SUCCESS";
     public static final String SUCCESS_CODE = "00";
 
