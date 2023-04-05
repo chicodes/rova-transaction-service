@@ -16,8 +16,8 @@ FROM public.ecr.aws/docker/library/openjdk:11-jre-slim
 
 WORKDIR /app
 
-COPY --from=build /app/target/transactionService-0.0.1-SNAPSHOT.jar transactionService.jar
+COPY --from=build /app/target/transactionservice-0.0.1-SNAPSHOT.jar transactionservice.jar
 
 EXPOSE 3394
 
-ENTRYPOINT ["java","-jar","transactionService.jar"]
+ENTRYPOINT ["java","-jar","transactionservice.jar"]
