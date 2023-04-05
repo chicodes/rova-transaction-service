@@ -11,14 +11,14 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TransactionResponse<T> {
+public class RevoResponse<T> {
     private String respCode;
     private String respDescription;
     private T respBody;
     @JsonIgnore
     private HttpStatus httpStatus;
 
-    public TransactionResponse(String description, String code, HttpStatus status){
+    public RevoResponse(String description, String code, HttpStatus status){
         respCode = code;
         httpStatus = status;
         respDescription = description;

@@ -6,10 +6,8 @@ import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
 import com.google.gson.Gson;
 import com.rova.transactionService.dto.CreateTransactionRequestDto;
-import com.rova.transactionService.dto.SqsTransactionDto;
+import com.rova.transactionService.model.TransactionType;
 import com.rova.transactionService.service.TransactionService;
-import com.rova.transactionService.service.TransactionServiceImpl;
-import io.awspring.cloud.messaging.listener.annotation.SqsListener;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
@@ -57,8 +55,10 @@ public class SqsListeners {
                     + message.getBody());
             if (!"".equals(message.getBody())) {
                 CreateTransactionRequestDto transaction = gson.fromJson(message.getBody(), CreateTransactionRequestDto.class);
+                transaction.setTransactionType(TransactionType.DEPOSIT);
+                transaction.setAmount(transaction.getInitialCredit());
                 log.info("request message :: {}", transaction);
-                transactionService.createTransaction(transaction);
+                transactionService.doTransaction(transaction);
                amazonSQS.deleteMessage(new DeleteMessageRequest(env.getProperty("transaction.queue.url"), message.getReceiptHandle()));
                log.info("message deleted from queue");
             }

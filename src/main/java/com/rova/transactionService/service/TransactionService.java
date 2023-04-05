@@ -1,11 +1,15 @@
 package com.rova.transactionService.service;
 
-import com.rova.transactionService.dto.TransactionResponse;
+import com.rova.transactionService.dto.RevoResponse;
 import com.rova.transactionService.dto.CreateTransactionRequestDto;
 
 public interface TransactionService {
 
-    TransactionResponse createTransaction(CreateTransactionRequestDto request);
+    RevoResponse doTransaction(CreateTransactionRequestDto request);
 
-    TransactionResponse getTransaction(String id);
+    RevoResponse getTransaction(String id);
+
+
+
+    RevoResponse getCustomerTransactions(String id, int pageNo, int pageSize);
 }

@@ -2,10 +2,7 @@ package com.rova.transactionService.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -17,8 +14,14 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String customerId;
+    @Enumerated(EnumType.STRING)
+    private TransactionType transactionType;
     Date dateCreated;
     BigDecimal amount;
     Date dateUpdated;
+
+    BigDecimal balanceBefore;
+
+    BigDecimal balanceAfter;
 
 }
